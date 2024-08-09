@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
         }
 
         header {
-            background-image: url('/Dandeli/pexels-eberhardgross-443446.jpg');
+            background-image: url('images/pexels-eberhardgross-443446.jpg');
             height: 400px;
             background-size: cover;
             background-position: center;
@@ -249,6 +254,13 @@
             <a href="#how-to-reach">How to Reach</a>
             <a href="#prices">Prices</a>
             <a href="tel:+8296659544">Call Now</a>
+	    <?php if (isset($_SESSION['username'])): ?>
+                <span>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+		<a href="logout.php">Logout</a>
+	    <?php else: ?>
+	        <a href="register.php">Sign Up</a>
+		<a href="login.php">Login</a>
+	    <?php endif; ?>	       
         </nav>
         <h1>Dandeli's #1 Best Resort Booking Website</h1>
     </header>
@@ -257,19 +269,19 @@
         <h2>Resorts in Dandeli</h2>
         <div class="resort-scroll">
             <div class="resort-item">
-                <img src="/Dandeli/pexels-thorsten-technoman-109353-338504.jpg" alt="Whistling Woodz">
+                <img src="images/pexels-thorsten-technoman-109353-338504.jpg" alt="Whistling Woodz">
                 <p>Whistling Woodz</p>
             </div>
             <div class="resort-item">
-                <img src="/Dandeli/pexels-boonkong-boonpeng-442952-1134176.jpg" alt="Starling Resort">
+                <img src="images/pexels-boonkong-boonpeng-442952-1134176.jpg" alt="Starling Resort">
                 <p>Starling Resort</p>
             </div>
             <div class="resort-item">
-                <img src="/Dandeli/pexels-pixabay-38238.jpg" alt="River Edge Retreat">
+                <img src="images/pexels-pixabay-38238.jpg" alt="River Edge Retreat">
                 <p>River Edge Retreat</p>
             </div>
             <div class="resort-item">
-                <img src="/Dandeli/pexels-donaldtong94-189296.jpg" alt="Century Resort">
+                <img src="images/pexels-donaldtong94-189296.jpg" alt="Century Resort">
                 <p>Century Resort</p>
             </div>
         </div>
@@ -287,22 +299,22 @@
         <h2>Things to Do in Dandeli</h2>
         <div class="activity-grid">
             <div class="activity-item">
-                <img src="/Dandeli/ziplining.jpg" alt="Ziplining">
+                <img src="images/ziplining.jpg" alt="Ziplining">
                 <h3>Ziplining</h3>
                 <p>For fans of wildlife tourism, Dandeli Wildlife Sanctuary is a wonderful getaway to enjoy some time in the company of lush green forests and wild animals. Located on the Western Ghats, this sanctuary is acclaimed for having a range of diverse flora and fauna. It is amongst the few places to visit in Dandeli that boasts of an incredible landscape which is filled with river valleys, verdant hills and scenic beauty.</p>
             </div>
             <div class="activity-item">
-                <img src="/Dandeli/camping.jpg" alt="Camping">
+                <img src="images/camping.jpg" alt="Camping">
                 <h3>Camping</h3>
                 <p>The most popular and the most thrilling things to do in Dandeli is river rafting on the River Kali which is a treat for adventure enthusiasts. This river rafting activity in Dandeli is conducted on the rapids of the Kali River ranging from grade I to IV. This thrilling activity will surely pump some adrenaline into your body and provide a thrilling experience as you raft over gushing waters amidst the scenic beauty of the forest.</p>
             </div>
             <div class="activity-item">
-                <img src="/Dandeli/trekking.jpg" alt="Trekking">
+                <img src="images/trekking.jpg" alt="Trekking">
                 <h3>Trekking</h3>
                 <p>For bird watchers, Dandeli is a wonderful place to observe various bird species. The region’s rich avian population includes some unique and rare species like the Great Hornbill, Malabar Pied Hornbill, and more. The best places for bird watching are the Dandeli Wildlife Sanctuary, Ulavi Caves, and other forested areas around the sanctuary.</p>
             </div>
             <div class="activity-item">
-                <img src="/Dandeli/river rafting.jpg" alt="Nature Walk">
+                <img src="images/river rafting.jpg" alt="Nature Walk">
                 <h3>River Rafting</h3>
                 <p>Located in the Dandeli Wildlife Sanctuary, Ulavi Caves is a beautiful place to visit in Dandeli that offers an amazing experience to explore ancient rock-cut caves. These caves are surrounded by lush greenery and are a perfect spot to enjoy a peaceful retreat. The caves are an ancient religious site and are believed to have been inhabited by monks and sages in the past.</p>
             </div>
@@ -314,13 +326,13 @@
         <div class="resort-grid">
             <div class="resort-row">
                 <div class="resort-price-item">
-                    <img src="/Dandeli/pexels-thorsten-technoman-109353-338504.jpg" alt="Whistling Woodz">
+                    <img src="images/pexels-thorsten-technoman-109353-338504.jpg" alt="Whistling Woodz">
                     <h3>Whistling Woodz</h3>
                     <p>Starting Price: $100 per night</p>
                     <button>Book Now</button>
                 </div>
                 <div class="resort-price-item">
-                    <img src="/Dandeli/pexels-boonkong-boonpeng-442952-1134176.jpg" alt="Starling Resort">
+                    <img src="images/pexels-boonkong-boonpeng-442952-1134176.jpg" alt="Starling Resort">
                     <h3>Starling Resort</h3>
                     <p>Starting Price: $150 per night</p>
                     <button>Book Now</button>
@@ -328,13 +340,13 @@
             </div>
             <div class="resort-row">
                 <div class="resort-price-item">
-                    <img src="/Dandeli/pexels-pixabay-38238.jpg" alt="River Edge Retreat">
+                    <img src="images/pexels-pixabay-38238.jpg" alt="River Edge Retreat">
                     <h3>River Edge Retreat</h3>
                     <p>Starting Price: $200 per night</p>
                     <button>Book Now</button>
                 </div>
                 <div class="resort-price-item">
-                    <img src="/Dandeli/pexels-donaldtong94-189296.jpg" alt="Century Resort">
+                    <img src="images/pexels-donaldtong94-189296.jpg" alt="Century Resort">
                     <h3>Century Resort</h3>
                     <p>Starting Price: $250 per night</p>
                     <button>Book Now</button>
@@ -347,7 +359,7 @@
             <div class="login-signup">
                 <div class="form-container">
                     <h2>Login</h2>
-                    <form action="/login.php" method="post">
+                    <form action="login.php" method="post">
                         <label for="login-email">Email:</label>
                         <input type="email" id="login-email" name="email" required>
                         <label for="login-password">Password:</label>
@@ -357,7 +369,7 @@
                 </div>
                 <div class="form-container">
                     <h2>Sign Up</h2>
-                    <form action="/signup.php" method="post">
+                    <form action="register.php" method="post">
                         <label for="signup-email">Email:</label>
                         <input type="email" id="signup-email" name="email" required>
                         <label for="signup-password">Password:</label>

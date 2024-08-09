@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -10,12 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        echo "Login successful! Welcome, " . $user['username'];
+        header("Location: index.html"); // Redirect to homepage
+        exit;
     } else {
-        echo "Invalid username or password!";
+        $error = "Invalid username or password!";
     }
 }
 ?>
@@ -28,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login</title>
 </head>
 <body>
+    <?php if (!empty($error)): ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php endif; ?>
     <form action="login.php" method="POST">
         <label for="username">Username:</label>
         <input type="text" name="username" required><br>
